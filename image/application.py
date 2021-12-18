@@ -63,7 +63,7 @@ def main():
     menu = ["Home","Recommend","EDA & Data Visulizations","Content Based Recommendation"]
     choice = st.sidebar.selectbox("Menu",menu)
 
-    df = load_data(r"C:\Users\Dona\Downloads\airbnbBOS\image\content_out.csv")
+    df = load_data(r"C:/Users/Dona/Downloads/airbnbBOS/image/content_out.csv")
 
     if choice == "Home":
         st.subheader("Home")
@@ -119,7 +119,7 @@ def main():
     else:
         st.subheader("Content Based Recommendation")
         def get_data():
-            return pd.read_csv(r"C:\Users\Dona\Downloads\airbnbBOS\image\recommend_output.csv")
+            return pd.read_csv(r"C:/Users/Dona/Downloads/airbnbBOS/image/recommend_output.csv")
         n=1
         df = get_data()
         images = df['0'].unique()
