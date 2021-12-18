@@ -119,7 +119,7 @@ def main():
     else:
         st.subheader("Content Based Recommendation")
         def get_data():
-            return pd.read_csv(r"C:\Users\Dona\Downloads\airbnbBOS\image\recommend_output.csv")
+            return pd.read_csv(r"recommend_output.csv")
         n=1
         df = get_data()
         images = df['0'].unique()
