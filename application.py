@@ -105,7 +105,7 @@ def main():
 
 
 
-    elif choice=="EDA & Data Visulizations":
+    else:
         st.subheader("EDA & Data Visulizations")
         st.text("Built with Streamlit & Pandas")
         html_temp = """<div class='tableauPlaceholder' id='viz1639794308819' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BostonAirbnbAnalysis_16397915993500&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1639794308819');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.90)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='9000px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
@@ -116,25 +116,6 @@ def main():
 
         html_temp3 = """<div class='tableauPlaceholder' id='viz1639795755158' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BostonAirbnbAnalysis3&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1639795755158');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
         stc.html(html_temp3, width=900,height=1000)
-    else:
-        st.subheader("Content Based Recommendation")
-        def get_data():
-            return pd.read_csv(r"recommend_output.csv")
-        n=1
-        df = get_data()
-        images = df['0'].unique()
-        st.subheader("Choose an image from the below list : ")
-        pic = st.selectbox('Choices : ', images)
-        st.subheader("**_IMAGE_** selected by the **_USER!_**")
-        st.image(pic,width=None)
-        st.subheader('How Many Images do you want to see?')
-        z = st.radio('Select the Number',(1,2,3,4,5,6,7,8,9,10))
-        st.subheader("SIMILAR IMAGES OF THE **_SELECTED IMAGE :_**")
-        for index, row in df.iterrows():
-            if row['0']==pic:
-                while n < z+1:
-                    st.image(row[n], use_column_width=None, caption=row[n])
-                    n+=1
 
 if __name__ == '__main__':
     main()
