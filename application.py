@@ -63,7 +63,7 @@ def main():
     menu = ["Home","Recommend","EDA & Data Visulizations"]
     choice = st.sidebar.selectbox("Menu",menu)
 
-    df = load_data(r"C:/Users/Dona/Downloads/airbnbBOS/content_out.csv")
+    df = load_data(r"content_out.csv")
 
     if choice == "Home":
         st.subheader("Home")
